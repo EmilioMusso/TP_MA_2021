@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JTextArea;
 
 public class MainFrame extends JPanel {
 
@@ -30,8 +31,6 @@ public class MainFrame extends JPanel {
 	public MainFrame(AppSistema appS, JFrame frame) {
 		super();
 		initialize(appS, frame);
-		
-		
 	}
 
 
@@ -65,6 +64,14 @@ public class MainFrame extends JPanel {
 		JButton btnNewButton = new JButton("New button");
 		btnNewButton.setBounds(106, 35, 89, 23);
 		desktopPane.add(btnNewButton);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(33, 88, 269, 133);
+		desktopPane.add(textArea);
+		
+		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.addTab("New tab", null, tabbedPane_1, null);
+		String var = textArea.getText();
 		
 		
 		

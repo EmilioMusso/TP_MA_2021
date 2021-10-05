@@ -2,6 +2,7 @@ package metodosagiles.xp.tp;
 
 import javax.swing.JFrame;
 import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 
@@ -31,7 +32,13 @@ public class App {
 private void armarApp(AppSistema appS) {
 
 		try {
-			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+//			UIManager.setLookAndFeel("com.seaglasslookandfeel.SeaGlassLookAndFeel");
+		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+		        if ("Nimbus".equals(info.getName())) {
+		            UIManager.setLookAndFeel(info.getClassName());
+		            break;
+		        }
+		    }
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
 				| UnsupportedLookAndFeelException e) {
 			try {
