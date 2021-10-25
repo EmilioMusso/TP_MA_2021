@@ -8,6 +8,7 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import metodosagiles.xp.tp.AppSistema;
+import utilidades.strings;
 
 import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
@@ -17,12 +18,16 @@ import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import javax.swing.JToolBar;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JMenu;
 
 public class MainFrame extends JPanel {
 
 	//Declaraciones de elementos de la pantalla
 	private JFrame frame;
-	private JTextField textField;
 	//
 
 	/**
@@ -45,35 +50,26 @@ public class MainFrame extends JPanel {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(0, 0, 784, 561);
-		panel.add(tabbedPane);
-		
 		JDesktopPane desktopPane = new JDesktopPane();
-		tabbedPane.addTab("New tab", null, desktopPane, null);
+		desktopPane.setBounds(10, 41, 764, 509);
+		panel.add(desktopPane);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(10, 11, 46, 14);
-		desktopPane.add(lblNewLabel);
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(10, 8, 101, 22);
+		panel.add(menuBar);
 		
-		textField = new JTextField();
-		textField.setBounds(10, 36, 86, 20);
-		desktopPane.add(textField);
-		textField.setColumns(10);
+		JMenu itemFile = new JMenu(strings.FILE_LABEL);
+		menuBar.add(itemFile);
+		JMenu itemEdit = new JMenu(strings.EDIT_LABEL);
+		menuBar.add(itemEdit);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(106, 35, 89, 23);
-		desktopPane.add(btnNewButton);
+		JMenuItem itemSalir = new JMenuItem(strings.EXIT_LABEL);
+		itemFile.add(itemSalir);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(33, 88, 269, 133);
-		desktopPane.add(textArea);
+		itemSalir.addActionListener(a -> {
+			System.exit(0);
+		});
 		
-		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.addTab("New tab", null, tabbedPane_1, null);
-		String var = textArea.getText();
-		
-		
-		
+	
 	}
 }
