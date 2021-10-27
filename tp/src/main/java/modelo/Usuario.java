@@ -12,7 +12,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Table( name = "USUARIOS" )
 public class Usuario {
 	
-	@Id
+	@Id()
 	@GeneratedValue(generator="increment")
 	@GenericGenerator(name="increment", strategy = "increment")
 	private Integer id_usuario;
@@ -20,4 +20,21 @@ public class Usuario {
 	@Column(name = "NOMBRE")
 	private String nombreUsuario;
 
+	public Integer getId_usuario() {
+		return id_usuario;
+	}
+
+	public void setId_usuario(Integer id_usuario) {
+		this.id_usuario = id_usuario;
+	}
+
+	public String getNombreUsuario() {
+		return nombreUsuario;
+	}
+
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
+	}
+	
+	
 }
