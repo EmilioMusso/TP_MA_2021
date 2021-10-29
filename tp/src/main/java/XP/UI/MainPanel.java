@@ -1,12 +1,15 @@
-package ui;
+package XP.UI;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT;
+
 import javax.swing.UnsupportedLookAndFeelException;
 
-import utilidades.strings;
+import XP.AppSistema;
+import XP.UTIL.strings;
 
 import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
@@ -22,18 +25,20 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
 
-public class MainFrame extends JPanel {
+public class MainPanel extends JPanel{
 
 	//Declaraciones de elementos de la pantalla
-	private JFrame frame;
 	//
-
+	private JPanel PanelAltaVendedor;
+	private JPanel PanelBajaVendedor;
+	private JPanel PanelModificarVendedor;
+	private XP.UI.MenuBarra menuBar;
 	/**
 	 * Create the application.
 	 */
-	public MainFrame(/*AppSistema appS,*/ JFrame frame) {
+	public MainPanel(AppSistema appS, JFrame frame) {
 		super();
-		initialize(/*appS,*/ frame);
+		this.initialize(appS, frame);
 	}
 
 
@@ -41,18 +46,15 @@ public class MainFrame extends JPanel {
 	 * Initialize the contents of the frame.
 	 */
 	
-	private void initialize(/*AppSistema appS,*/ JFrame frame) {
-		JPanel panel = new PanelAltaVendedor(frame);
-		frame.getContentPane().add(panel);
+	private void initialize(AppSistema appS, JFrame frame) {
+		
+		menuBar = new MenuBarra(appS, frame);
 	}
 	 
 //	private void initialize(/*AppSistema appS,*/ JFrame frame) {
 //	
 //		
-//		JPanel panel = new JPanel();
-//		panel.setBounds(0, 0, 784, 561);
-//		frame.getContentPane().add(panel);
-//		panel.setLayout(null);
+
 //		
 //		JDesktopPane desktopPane = new JDesktopPane();
 //		desktopPane.setBounds(10, 41, 764, 509);

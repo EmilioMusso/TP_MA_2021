@@ -1,4 +1,4 @@
-package ui;
+package XP.UI;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -7,6 +7,9 @@ import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import XP.AppSistema;
+
 import javax.swing.JPasswordField;
 
 public class PanelAltaVendedor extends JPanel {

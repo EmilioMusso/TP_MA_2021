@@ -1,4 +1,4 @@
-package modelo;
+package XP.MODEL;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,6 +19,13 @@ public class Usuario {
 	
 	@Column(name = "NOMBRE")
 	private String nombreUsuario;
+	
+	
+	public Usuario(Integer id_usuario, String nombreUsuario) {
+		super();
+		this.id_usuario = id_usuario;
+		this.nombreUsuario = nombreUsuario;
+	}
 
 	public Integer getId_usuario() {
 		return id_usuario;

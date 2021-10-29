@@ -1,3 +1,4 @@
+package XP;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -12,23 +13,31 @@ import javax.swing.WindowConstants;
 import org.hibernate.engine.jdbc.connections.spi.DataSourceBasedMultiTenantConnectionProviderImpl;
 import org.hibernate.loader.entity.plan.DynamicBatchingEntityLoader;
 
+import XP.MODEL.Usuario;
+import XP.UI.MainPanel;
 import javafx.scene.paint.Color;
-import ui.MainFrame;
 
 public class App {
 	private JFrame frame;
-	private ui.MainFrame mainFrame;
+	private MainPanel mainPanel;
 	
 	public static void main(String[] args) {
 		App app = new App();
 		AppSistema appS = new AppSistema();
 		
+		/**
+		 * carga de los datos del sistema que se encuentran inicializados en appsistema
+		 */
+		Usuario u1 = new Usuario(01, "usuario_test_01");
+		Usuario u2 = new Usuario(02, "usuario_test_02");
+		appS.addUsuario(u1);
+		appS.addUsuario(u2);
+		
+		
 		
 		/**
 		 * definicion de elementos para la app
 		 */
-		
-		
 		app.armarApp(appS);
 	
 //		DBConnect();
@@ -86,7 +95,7 @@ private void armarApp(AppSistema appS) {
 		frame.setBounds(200, 0, 800, 600);
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
-		mainFrame= new MainFrame(/*appS,*/ frame);
+		mainPanel= new MainPanel(appS, frame);
 		
 		frame.setVisible(true);	
 

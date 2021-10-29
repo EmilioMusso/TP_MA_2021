@@ -1,4 +1,4 @@
-package ui;
+package XP.UI;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,7 +8,8 @@ import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import modelo.Vendedor;
+import XP.EXCEPTIONS.CampoVacioException;
+import XP.MODEL.Vendedor;
 
 import javax.swing.JPasswordField;
 
